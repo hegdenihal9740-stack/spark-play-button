@@ -51,8 +51,7 @@ export function FlipkartDetails({
   const m = cardMeta[active];
   const w = watches.find((x) => x.id === active)!;
   const price = prices[w.id];
-  const anims = [`${VID_PREFIX}3d|${w.id}`];
-  const imgs = [w.image, `${FEAT}${w.id}`, life[w.id], ...extra[w.id], ...anims];
+  const imgs = [w.image, `${FEAT}${w.id}`, life[w.id], ...extra[w.id]];
   const feat = <FeatureCard img={w.image} labels={m.specs} />;
   const [dial, setDial] = useState('42 mm');
   const [idx, setIdx] = useState(0);
