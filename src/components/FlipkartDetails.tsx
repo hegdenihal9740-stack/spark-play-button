@@ -19,7 +19,6 @@ import blackLife from '@/assets/lifestyle-black.jpg';
 import goldLife from '@/assets/lifestyle-gold.jpg';
 import roseLife from '@/assets/lifestyle-rosegold.jpg';
 import { cardMeta } from '@/lib/watch-meta';
-const VID_PREFIX = 'spin:';
 const FEAT = 'feat:';
 const isFeat = (s?: string) => !!s && s.startsWith(FEAT);
 const life: Record<string, string> = { steel: steelLife, black: blackLife, gold: goldLife, rosegold: roseLife };
@@ -34,7 +33,6 @@ const dialSizes = ['38 mm', '40 mm', '42 mm', '44 mm'];
 const extra: Record<WatchTone, string[]> = {
   steel: [steelHand, steelJpg, steelTry], black: [blackHand, blackJpg, blackTry], gold: [goldHand, goldJpg, goldTry], rosegold: [roseHand, roseJpg, roseTry],
 };
-import { WatchScene } from '@/components/WatchScene';
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { cart, prices } from '@/lib/cart';
 import { watches, type WatchTone } from '@/lib/watches';
