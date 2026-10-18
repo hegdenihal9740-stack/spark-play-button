@@ -27,7 +27,6 @@ function FeatureCard({ img, labels }: { img: string; labels: string[] }) {
   return <div className="fk-feat"><div className="fk-feat-disc" /><img className="fk-feat-main" src={img} alt="" />
     <ul className="fk-feat-list">{labels.slice(0, 3).map((l, i) => <li key={l}><span className="fk-feat-circle" style={{ backgroundImage: `url(${img})`, backgroundPosition: crops[i] }} /><span>{l}</span></li>)}</ul></div>;
 }
-const isVid = (s?: string) => !!s && s.startsWith(VID_PREFIX);
 const dialSizes = ['38 mm', '40 mm', '42 mm', '44 mm'];
 
 const extra: Record<WatchTone, string[]> = {
@@ -87,9 +86,9 @@ export function FlipkartDetails({
         <div className="fk-grid">
           <div className="fk-left">
             <span className="fk-index">{String(idx + 1).padStart(2, '0')} / {String(imgs.length).padStart(2, '0')}</span>
-            {isFeat(imgs[idx]) ? <div className="fk-imgbox is-feat">{feat}</div> : isVid(imgs[idx]) ? <div className="fk-imgbox"><div className="fk-3d" onClick={(e) => e.stopPropagation()}><WatchScene key={w.id} tone={w.id} interactive /></div></div> : <button type="button" className="fk-imgbox" onClick={() => setFull(true)} aria-label="Open full image view"><img src={imgs[idx]} alt={w.name} /><span className="fk-zoomhint"><ZoomIn size={13} /> View full</span></button>}
+            {isFeat(imgs[idx]) ? <div className="fk-imgbox is-feat">{feat}</div> : <button type="button" className="fk-imgbox" onClick={() => setFull(true)} aria-label="Open full image view"><img src={imgs[idx]} alt={w.name} /><span className="fk-zoomhint"><ZoomIn size={13} /> View full</span></button>}
             <div className="fk-thumbs">{imgs.map((src, i) => (
-              <button type="button" key={src} className={`fk-thumb ${i === idx ? 'is-active' : ''}`} onClick={() => setIdx(i)}>{isFeat(src) ? <span className="fk-thumb-vid">Key</span> : isVid(src) ? <span className="fk-thumb-vid">3D</span> : <img src={src} alt="" />}</button>
+              <button type="button" key={src} className={`fk-thumb ${i === idx ? 'is-active' : ''}`} onClick={() => setIdx(i)}>{isFeat(src) ? <span className="fk-thumb-vid">Key</span> : <img src={src} alt="" />}</button>
             ))}</div>
           </div>
           <div className="fk-right">
