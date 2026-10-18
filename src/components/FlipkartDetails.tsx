@@ -179,11 +179,11 @@ export function FlipkartDetails({
         <DialogTitle className="sr-only">{w.name} full image view</DialogTitle>
         <div className="fk-full-main">
           <button type="button" className="fk-nav" onClick={() => go(-1)} aria-label="Previous image"><ChevronLeft size={28} /></button>
-          <div className={`fk-full-stage ${zoom ? 'is-zoom' : ''}`} onClick={() => setZoom((z) => !z)}>{isFeat(imgs[idx]) ? feat : isVid(imgs[idx]) ? <div className="fk-3d" onClick={(e) => e.stopPropagation()}><WatchScene key={w.id} tone={w.id} interactive /></div> : <img src={imgs[idx]} alt={w.name} />}</div>
+          <div className={`fk-full-stage ${zoom ? 'is-zoom' : ''}`} onClick={() => setZoom((z) => !z)}>{isFeat(imgs[idx]) ? feat : <img src={imgs[idx]} alt={w.name} />}</div>
           <button type="button" className="fk-nav" onClick={() => go(1)} aria-label="Next image"><ChevronRight size={28} /></button>
         </div>
         <div className="fk-full-thumbs">{imgs.map((src, i) => (
-          <button type="button" key={src} className={`fk-thumb ${i === idx ? 'is-active' : ''}`} onClick={() => { setIdx(i); setZoom(false); }}>{isFeat(src) ? <span className="fk-thumb-vid">Key</span> : isVid(src) ? <span className="fk-thumb-vid">3D</span> : <img src={src} alt="" />}</button>
+          <button type="button" key={src} className={`fk-thumb ${i === idx ? 'is-active' : ''}`} onClick={() => { setIdx(i); setZoom(false); }}>{isFeat(src) ? <span className="fk-thumb-vid">Key</span> : <img src={src} alt="" />}</button>
         ))}</div>
       </DialogContent>
     </Dialog>
